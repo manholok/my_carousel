@@ -1,7 +1,7 @@
 // just a timer that sets classes
 const start = (stateHolder) => {
     // set the first img to active
-    let firstImage = document.querySelector('.images-container img:nth-child(1)');
+    let firstImage = document.querySelector('.images-container div:nth-child(1)');
     firstImage.classList.add('active');
 
     let id = setInterval(() => {
@@ -22,7 +22,7 @@ const nextImage = stateHolder => {
     }
 
     // remove all go-away classes from the list
-    let allImgs = document.querySelectorAll('.images-container img');
+    let allImgs = document.querySelectorAll('.images-container div');
     allImgs.forEach(img => {
         if (img.classList.contains('go-away')) {
             img.classList.remove('go-away');
@@ -30,7 +30,7 @@ const nextImage = stateHolder => {
     });
 
     // set next to active class
-    let nextEl = document.querySelector('.images-container img:nth-child('+ (next + 1) +')');
+    let nextEl = document.querySelector('.images-container div:nth-child('+ (next + 1) +')');
     if (nextEl.classList.contains('go-away')) {
         nextEl.classList.remove('go-away');
     }
@@ -38,7 +38,7 @@ const nextImage = stateHolder => {
     nextEl.classList.add('active');
 
     // set current to go-away class
-    let currentEl = document.querySelector('.images-container img:nth-child('+ (current + 1) +')');
+    let currentEl = document.querySelector('.images-container div:nth-child('+ (current + 1) +')');
     if (currentEl.classList.contains('active')) {
         currentEl.classList.remove('active');
     }

@@ -7,7 +7,7 @@ const getImageTemplate = (url) => {
     let template = document.createElement('div');
     template.innerHTML = carouselImage;
     let image = template.childNodes[0];
-    image.src = url;
+    image.style = 'background-image: url(' + url +')';
     return image;
 };
 
