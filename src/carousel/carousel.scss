@@ -1,0 +1,26 @@
+.carousel-container {
+    position: relative;
+    height: 40vh;
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.carousel-image.active {
+    transition-duration: 300ms;
+    transform: translateX(-100vw);
+}
+
+.carousel-image.go-away {
+    transition-duration: 300ms;
+    transform: translateX(-200vw);
+}
+
+.carousel-arrow {
+
+}
