@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && webpack",
     "build:prod": "rimraf dist && webpack -p",
-    "server": "webpack-dev-server --open --watch --host 0.0.0.0 --port 3000 --public 192.168.1.85:3000",
+    "server": "webpack-dev-server --open --watch",
     "server:prod": "webpack-dev-server --open --watch -p"
   },
   "author": "",

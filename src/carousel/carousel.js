@@ -1,14 +1,8 @@
 import TemplateMaker from './templates/template-maker';
 import CarouselTimer from './carousel-timer';
+import NavContainer from './components/navigation/nav-container';
 
-const setHeightOfContainer = (containerElement) => {
-    let imageElement = document.querySelectorAll('.carousel-image')[0];
-    containerElement.height = imageElement.clientHeight;
-    console.log(imageElement.clientHeight);
-    console.log(containerElement.clientHeight);
-};
-
-const initCarousel = ((templateMaker, carouselTimer) => {
+const initCarousel = ((templateMaker, carouselTimer, navContainer) => {
     return (containerElement, promiseOfSource, stateHolder) => {
         containerElement.classList.add('carousel-container');
 
@@ -37,32 +31,18 @@ const initCarousel = ((templateMaker, carouselTimer) => {
             // set nav-container template
             containerElement.appendChild(templateMaker.getNavTemplate());
 
+            // set nav-container listeners,
+            // TODO: maybe pass the nav element instead of the whole container
+            navContainer.setListeners(containerElement);
+
             // set loading layer template
 
             // start carousel
             carouselTimer.start(stateHolder);
 
-            // clearInterval(id);
-
-            // Set height of parent container
-            setHeightOfContainer(containerElement);
-
-            // Set height for parent container
-            // TODO: should have a nice solution
-            // let timerId;
-            // window.addEventListener('resize', (event) => {
-            //     clearTimeout(timerId);
-            //     timerId = setTimeout(() => {
-            //         console.log('resized');
-            //         setHeightOfContainer();
-            //     }, 400);
-            //
-            //     // do stuff here
-            // });
-
         });
     }
-})(TemplateMaker, CarouselTimer);
+})(TemplateMaker, CarouselTimer, NavContainer);
 
 const refreshCarousel = () => {
     // Use this method to refresh carousel after every resize
